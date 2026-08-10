@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Web Anzis Rohman Wahid - Information System Graduate & Web Design.">
+    <title>Anzis Rohman Wahid | Portofolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="cyber-grid"></div>
+    <div class="animated-bg"></div>
+    <div class="animated-bg blob-2"></div>
+    <div class="animated-bg blob-3"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">A<span>nzis.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact" class="btn-nav">Let's Talk</a></li>
+                <li>
+                    <button id="theme-toggle" class="btn-theme" aria-label="Toggle Theme">
+                        <span class="icon">🌞</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="greeting reveal-up">Halo, Saya</h2>
+            <h1 class="name reveal-up delay-1" style="font-size: 3.5rem;">Anzis Rohman Wahid</h1>
+            <h3 class="role reveal-up delay-2">Information System <span class="highlight">|</span> Web Design</h3>
+            <p class="description reveal-up delay-3">Saya adalah lulusan Sistem Informasi dengan pengalaman dalam membuat website yang menarik, Data Engineer, Marketing, dan Accounting.</p>
+            <div class="cta-group reveal-up delay-4">
+                <a href="#projects" class="btn btn-primary">Lihat Karya Saya</a>
+                <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+            </div>
+        </div>
+        <div class="hero-image reveal-scale">
+            <div class="blob-bg"></div>
+            <img src="assets/profile.png" alt="Anzis Profile Picture" class="profile-pic">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header reveal-up">
+            <h2>Tentang <span class="highlight">Saya</span></h2>
+            <div class="line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text reveal-right">
+                <p>Saya Anzis Rohman Wahid, lulusan prodi Sistem Informasi Institut Teknologi Telkom Surabaya 2022 dengan IPK 3.37. Saya mempunyai pengalaman luas dalam membuat Website yang menarik, Data Engineering, Marketing, dan Accounting.</p>
+                <p>Pengalaman keorganisasian dan kompetisi saya mencakup menjadi finalis lomba STIKI Malang (pembuatan web modifikasi motor 3D), Gemastik Telkom University, serta aktif di UKKI, ECITTS (Kewirausahaan), dan Karang Taruna.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-num">4+</span>
+                        <span class="stat-label">Pengalaman Kerja</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">473</span>
+                        <span class="stat-label">Skor TOEFL</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">3.37</span>
+                        <span class="stat-label">IPK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header reveal-up">
+            <h2>Keahlian <span class="highlight">Utama</span></h2>
+            <div class="line"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card glass-card reveal-up">
+                <div class="skill-icon">💻</div>
+                <h3>Web & Development</h3>
+                <p>Laravel, PHP, SQLite, MySQL, Linux.</p>
+            </div>
+            <div class="skill-card glass-card reveal-up delay-1">
+                <div class="skill-icon">🎨</div>
+                <h3>Design & UI/UX</h3>
+                <p>UI/UX Design, Web Design, Content Creation.</p>
+            </div>
+            <div class="skill-card glass-card reveal-up delay-2">
+                <div class="skill-icon">📊</div>
+                <h3>Tools & Software</h3>
+                <p>SAP, Microsoft Word, Power Point, Excel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header reveal-up">
+            <h2>Proyek <span class="highlight">Terbaru</span></h2>
+            <div class="line"></div>
+        </div>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card glass-card reveal-scale">
+                <div class="project-img-wrapper">
+                    <div class="placeholder-img" style="background: linear-gradient(45deg, #2563eb, #7c3aed);"><span>TTIWSA</span></div>
+                    <div class="project-overlay">
+                        <a href="https://ttiwsa-dashboard-2026.vercel.app/report-ih-eastern" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-category">Web Dashboard</span>
+                    <h3 class="project-title">TTIWSA Dashboard</h3>
+                    <p class="project-desc">Report IH Eastern web dashboard dengan data real-time.</p>
+                    <div class="project-tech">
+                        <span>Web</span>
+                        <span>Dashboard</span>
+                        <span>UI/UX</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card glass-card reveal-scale delay-1">
+                <div class="project-img-wrapper">
+                    <div class="placeholder-img" style="background: linear-gradient(45deg, #10b981, #047857);"><span>PS RE</span></div>
+                    <div class="project-overlay">
+                        <a href="https://dashboard-ps-re.vercel.app/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-category">Web Dashboard</span>
+                    <h3 class="project-title">Dashboard Kawal PS RE</h3>
+                    <p class="project-desc">Sistem dashboard interaktif untuk pemantauan data PS RE secara komprehensif.</p>
+                    <div class="project-tech">
+                        <span>Frontend</span>
+                        <span>Data Viz</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card glass-card reveal-scale delay-2">
+                <div class="project-img-wrapper">
+                    <div class="placeholder-img" style="background: linear-gradient(45deg, #f59e0b, #d97706);"><span>WOC 2026</span></div>
+                    <div class="project-overlay">
+                        <a href="https://dashboardwoc2026.netlify.app/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-category">Web Dashboard</span>
+                    <h3 class="project-title">Dashboard WOC 2026</h3>
+                    <p class="project-desc">Antarmuka pengguna untuk menampilkan statistik dan laporan WOC tahun 2026.</p>
+                    <div class="project-tech">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projects-cta reveal-up">
+            <a href="#" class="btn btn-secondary">Lihat Semua Proyek</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container glass-card reveal-up">
+            <div class="contact-info">
+                <h2>Mari Bekerja <br><span class="highlight">Bersama</span></h2>
+                <p>Tertarik untuk berkolaborasi dalam proyek Anda selanjutnya? Jangan ragu untuk menghubungi saya!</p>
+                <div class="contact-details">
+                    <p>📧 anjisrohman73@gmail.com</p>
+                    <p>📍 Jakarta, Indonesia</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">In</a>
+                    <a href="#" aria-label="GitHub">Gh</a>
+                    <a href="#" aria-label="Dribbble">Dr</a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Anda" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Pesan Anda" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Anzis. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
