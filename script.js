@@ -113,6 +113,63 @@ if (typeof VanillaTilt !== 'undefined') {
     });
 }
 
+// Initialize Particles.js
+function initParticles(theme) {
+    if (typeof particlesJS === 'undefined') return;
+    
+    const isLight = theme === 'light';
+    const particleColor = isLight ? "#3b82f6" : "#8b5cf6"; 
+    const lineColor = isLight ? "#94a3b8" : "#8b5cf6"; 
+    
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 60,
+                "density": { "enable": true, "value_area": 800 }
+            },
+            "color": { "value": particleColor },
+            "shape": { "type": "circle" },
+            "opacity": {
+                "value": 0.5,
+                "random": false
+            },
+            "size": {
+                "value": 3,
+                "random": true
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": lineColor,
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+            }
+        },
+        "interactivity": {
+            "detect_on": "window",
+            "events": {
+                "onhover": { "enable": true, "mode": "grab" },
+                "onclick": { "enable": true, "mode": "push" },
+                "resize": true
+            },
+            "modes": {
+                "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                "push": { "particles_nb": 4 }
+            }
+        },
+        "retina_detect": true
+    });
+}
+
 // Theme Toggle Logic
 const themeToggleBtn = document.getElementById('theme-toggle');
 if (themeToggleBtn) {
@@ -128,6 +185,8 @@ if (themeToggleBtn) {
         }
     }
     
+    initParticles(currentTheme || 'dark');
+    
     themeToggleBtn.addEventListener('click', () => {
         let theme = document.documentElement.getAttribute('data-theme');
         
@@ -135,10 +194,12 @@ if (themeToggleBtn) {
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
             themeIcon.textContent = '🌞';
+            initParticles('dark');
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
             themeIcon.textContent = '🌙';
+            initParticles('light');
         }
     });
 }
