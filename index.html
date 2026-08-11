@@ -22,6 +22,11 @@
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -51,7 +56,7 @@
         <div class="hero-content">
             <h2 class="greeting reveal-up">Halo, Saya</h2>
             <h1 class="name reveal-up delay-1" style="font-size: 3.5rem;">Anzis Rohman Wahid</h1>
-            <h3 class="role reveal-up delay-2">Information System <span class="highlight">|</span> Web Design</h3>
+            <h3 class="role reveal-up delay-2"><span class="typed-text"></span><span class="cursor">&nbsp;</span></h3>
             <p class="description reveal-up delay-3">Saya adalah lulusan Sistem Informasi dengan pengalaman dalam membuat website yang menarik, Data Engineer, Marketing, dan Accounting.</p>
             <div class="cta-group reveal-up delay-4">
                 <a href="#projects" class="btn btn-primary">Lihat Karya Saya</a>
@@ -72,8 +77,32 @@
         </div>
         <div class="about-content">
             <div class="about-text reveal-right">
-                <p>Saya Anzis Rohman Wahid, lulusan prodi Sistem Informasi Institut Teknologi Telkom Surabaya 2022 dengan IPK 3.37. Saya mempunyai pengalaman luas dalam membuat Website yang menarik, Data Engineering, Marketing, dan Accounting.</p>
-                <p>Pengalaman keorganisasian dan kompetisi saya mencakup menjadi finalis lomba STIKI Malang (pembuatan web modifikasi motor 3D), Gemastik Telkom University, serta aktif di UKKI, ECITTS (Kewirausahaan), dan Karang Taruna.</p>
+                <p class="about-intro">Saya Anzis Rohman Wahid, lulusan prodi Sistem Informasi Institut Teknologi Telkom Surabaya 2022 dengan IPK 3.37. Berpengalaman luas dalam pengembangan web, Data Engineering, Marketing, dan Accounting.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🎓</div>
+                        <div class="timeline-content">
+                            <h4>Kelulusan (2022)</h4>
+                            <p>Institut Teknologi Telkom Surabaya, Sistem Informasi (IPK 3.37).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🏆</div>
+                        <div class="timeline-content">
+                            <h4>Pencapaian Kompetisi</h4>
+                            <p>Finalis lomba STIKI Malang (Web Modifikasi Motor 3D) & Gemastik Telkom University.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">👥</div>
+                        <div class="timeline-content">
+                            <h4>Pengalaman Organisasi</h4>
+                            <p>Aktif di UKKI, ECITTS (Kewirausahaan), dan Karang Taruna.</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="stats">
                     <div class="stat-item">
                         <span class="stat-num">4+</span>
@@ -220,14 +249,17 @@
                 </div>
             </div>
             <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" placeholder="Nama Anda" required>
+                <div class="form-group floating">
+                    <input type="text" id="name" required>
+                    <label for="name">Nama Anda</label>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Email Anda" required>
+                <div class="form-group floating">
+                    <input type="email" id="email" required>
+                    <label for="email">Email Anda</label>
                 </div>
-                <div class="form-group">
-                    <textarea id="message" rows="5" placeholder="Pesan Anda" required></textarea>
+                <div class="form-group floating">
+                    <textarea id="message" rows="5" required></textarea>
+                    <label for="message">Pesan Anda</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-submit">Kirim Pesan</button>
             </form>
