@@ -259,3 +259,131 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function() { 
     if(typedTextSpan && textArray.length) setTimeout(type, newTextDelay + 250);
 });
+
+// --- Project Capture Preview & Demo Request Logic ---
+const imageModal = document.getElementById('imageModal');
+const accessModal = document.getElementById('accessModal');
+const modalImageElement = document.getElementById('modalImageElement');
+const modalImageTitle = document.getElementById('modalImageTitle');
+const modalRequestFromImgBtn = document.getElementById('modalRequestFromImgBtn');
+
+const accessProjectName = document.getElementById('accessProjectName');
+const accessEmailLink = document.getElementById('accessEmailLink');
+const accessContactFormBtn = document.getElementById('accessContactFormBtn');
+
+let currentActiveProject = '';
+
+function openImageModal(imgSrc, projectTitle) {
+    currentActiveProject = projectTitle;
+    if (modalImageElement) modalImageElement.src = imgSrc;
+    if (modalImageTitle) modalImageTitle.innerHTML = `<span>📸</span> ${projectTitle}`;
+    if (imageModal) {
+        imageModal.classList.add('active');
+        imageModal.setAttribute('aria-hidden', 'false');
+    }
+}
+
+function openAccessModal(projectTitle) {
+    currentActiveProject = projectTitle;
+    if (accessProjectName) accessProjectName.textContent = projectTitle;
+    
+    // Set mailto link
+    if (accessEmailLink) {
+        const subject = encodeURIComponent(`Permintaan Izin Akses Live Demo - ${projectTitle}`);
+        const body = encodeURIComponent(`Halo Anzis,\n\nSaya tertarik untuk melihat live demo dari proyek "${projectTitle}". Bolehkah saya diberikan izin akses atau akun demo untuk mencoba aplikasi tersebut?\n\nTerima kasih.`);
+        accessEmailLink.href = `mailto:anjisrohman73@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // Close image modal if open
+    if (imageModal) {
+        imageModal.classList.remove('active');
+        imageModal.setAttribute('aria-hidden', 'true');
+    }
+
+    if (accessModal) {
+        accessModal.classList.add('active');
+        accessModal.setAttribute('aria-hidden', 'false');
+    }
+}
+
+function closeAllModals() {
+    if (imageModal) {
+        imageModal.classList.remove('active');
+        imageModal.setAttribute('aria-hidden', 'true');
+    }
+    if (accessModal) {
+        accessModal.classList.remove('active');
+        accessModal.setAttribute('aria-hidden', 'true');
+    }
+}
+
+// Bind preview buttons
+document.querySelectorAll('.btn-preview-img').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const imgSrc = btn.getAttribute('data-img');
+        const title = btn.getAttribute('data-title');
+        openImageModal(imgSrc, title);
+    });
+});
+
+// Bind request access buttons
+document.querySelectorAll('.btn-request-access').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const title = btn.getAttribute('data-title');
+        openAccessModal(title);
+    });
+});
+
+// Click card image wrapper directly to preview
+document.querySelectorAll('.project-img-wrapper').forEach(wrapper => {
+    wrapper.addEventListener('click', () => {
+        const previewBtn = wrapper.querySelector('.btn-preview-img');
+        if (previewBtn) previewBtn.click();
+    });
+});
+
+// Request access from inside image lightbox
+if (modalRequestFromImgBtn) {
+    modalRequestFromImgBtn.addEventListener('click', () => {
+        openAccessModal(currentActiveProject);
+    });
+}
+
+// Scroll to contact form from access modal
+if (accessContactFormBtn) {
+    accessContactFormBtn.addEventListener('click', () => {
+        closeAllModals();
+        const contactSection = document.getElementById('contact');
+        const messageField = document.getElementById('message');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (messageField) {
+            messageField.value = `Halo Anzis, saya ingin meminta izin akses live demo untuk proyek "${currentActiveProject}". Mohon informasi aksesnya, terima kasih!`;
+            messageField.focus();
+        }
+    });
+}
+
+// Close modal handlers (close button, backdrop click, Escape key)
+document.querySelectorAll('.modal-close, .modal-close-text').forEach(btn => {
+    btn.addEventListener('click', closeAllModals);
+});
+
+[imageModal, accessModal].forEach(modal => {
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeAllModals();
+            }
+        });
+    }
+});
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeAllModals();
+    }
+});
