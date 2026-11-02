@@ -93,7 +93,7 @@ if (cursorDot && cursorOutline) {
         el.addEventListener('mouseenter', () => {
             cursorOutline.style.width = '60px';
             cursorOutline.style.height = '60px';
-            cursorOutline.style.backgroundColor = 'rgba(139, 92, 246, 0.1)';
+            cursorOutline.style.backgroundColor = 'rgba(6, 182, 212, 0.15)';
         });
         el.addEventListener('mouseleave', () => {
             cursorOutline.style.width = '40px';
@@ -118,8 +118,8 @@ function initParticles(theme) {
     if (typeof particlesJS === 'undefined') return;
     
     const isLight = theme === 'light';
-    const particleColor = isLight ? "#3b82f6" : "#8b5cf6"; 
-    const lineColor = isLight ? "#94a3b8" : "#8b5cf6"; 
+    const particleColor = isLight ? "#0284c7" : "#38bdf8"; 
+    const lineColor = isLight ? "#94a3b8" : "#0284c7"; 
     
     particlesJS("particles-js", {
         "particles": {
