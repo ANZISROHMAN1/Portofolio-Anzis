@@ -428,8 +428,8 @@ section:not(.hero) {
 /* --- Projects Section --- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
@@ -458,7 +458,20 @@ section:not(.hero) {
     justify-content: center;
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+}
+
+.placeholder-img span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .placeholder-img span {
+    transform: scale(1.08);
 }
 
 .project-card:hover .project-img {
