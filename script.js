@@ -68,39 +68,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // --- Advanced UI Enhancements ---
 
-// Custom Cursor Logic
-const cursorDot = document.querySelector('[data-cursor-dot]');
-const cursorOutline = document.querySelector('[data-cursor-outline]');
+// Ambient Cursor Glow Spotlight Logic (100% native cursor responsiveness)
+const cursorGlow = document.getElementById('cursor-glow');
 
-if (cursorDot && cursorOutline) {
+if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    let isVisible = false;
+
     window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Add a slight delay for the outline for a smooth effect
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible) {
+            cursorGlow.style.opacity = '1';
+            isVisible = true;
+        }
     });
 
-    // Hover effect for interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .glass-card');
-    interactiveElements.forEach((el) => {
-        el.addEventListener('mouseenter', () => {
-            cursorOutline.style.width = '60px';
-            cursorOutline.style.height = '60px';
-            cursorOutline.style.backgroundColor = 'rgba(6, 182, 212, 0.15)';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorOutline.style.width = '40px';
-            cursorOutline.style.height = '40px';
-            cursorOutline.style.backgroundColor = 'transparent';
-        });
+    window.addEventListener('mouseleave', () => {
+        cursorGlow.style.opacity = '0';
+        isVisible = false;
     });
+
+    // High performance RAF loop without blocking the main thread or mouse events
+    function animateGlow() {
+        currentX += (mouseX - currentX) * 0.15;
+        currentY += (mouseY - currentY) * 0.15;
+        cursorGlow.style.left = `${currentX}px`;
+        cursorGlow.style.top = `${currentY}px`;
+        requestAnimationFrame(animateGlow);
+    }
+    requestAnimationFrame(animateGlow);
 }
 
 // Initialize Vanilla Tilt for 3D Cards

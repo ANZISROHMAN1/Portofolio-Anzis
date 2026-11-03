@@ -798,33 +798,30 @@ footer {
     background: rgba(6, 182, 212, 0.8);
 }
 
-/* Custom Cursor */
-* {
-    cursor: none !important;
+/* Interactive Cursor & Ambient Glow Spotlight */
+a, button, .btn, .btn-theme, .project-card, .glass-card, .hamburger, [role="button"], input[type="submit"] {
+    cursor: pointer;
 }
 
-.cursor-dot,
-.cursor-outline {
+.cursor-glow {
     position: fixed;
     top: 0;
     left: 0;
+    width: 500px;
+    height: 500px;
     transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 70%);
     border-radius: 50%;
-    z-index: 9999;
     pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
 }
 
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary-color);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--secondary-color);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+@media (max-width: 768px) {
+    .cursor-glow {
+        display: none;
+    }
 }
 
 /* Animated Background Blobs */
